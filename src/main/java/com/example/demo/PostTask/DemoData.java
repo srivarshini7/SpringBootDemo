@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Table(name= "data_table")
 public class DemoData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name="userId")
     private long userId;

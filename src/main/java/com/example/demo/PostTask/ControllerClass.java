@@ -1,21 +1,17 @@
 package com.example.demo.PostTask;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping(value = "/demodata")
+@RequestMapping(value = "/demoData")
 public class ControllerClass {
     @Autowired
     DemoRepo demoRepo;
 
-
 //   save one object
-    @PostMapping("/posts/{id}")
+    @PostMapping("/post/{id}")
     public DemoData insertData(@RequestBody DemoData demoData) {
         System.out.println("Your record saved successfully!!");
         return demoRepo.save(demoData);
@@ -27,75 +23,64 @@ public class ControllerClass {
         return demoRepo.saveAll(demoData);
     }
 
-
     @GetMapping("/getPosts")
     public List<DemoData> getAllData(@RequestBody List<DemoData> demoData){
         return demoRepo.findAll();
     }
 
+    @GetMapping("/getPosts/{id}")
+    public DemoData findDataById(@PathVariable long id){
+        return demoRepo.findById(id).orElse(null);
+    }
 
-//    @GetMapping("/getPosts/{id}")
-//    public DemoData findDataById(@PathVariable long id){
-//        return demoRepo.findById(DemoData);
-//    }
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable long id){
+        demoRepo.deleteById(id);
+        System.out.println("The element has been deleted!!");
+    }
 
-//    @GetMapping("/getPosts/{id}")
-//    public ResponseEntity<DemoData> get(@PathVariable Long id) {
-//        try {
-//            DemoData student = demoRepo.getReferenceById(id);
-//            return new ResponseEntity<DemoData>(student, HttpStatus.OK);
-//        } catch (NoSuchElementException e) {
-//            return new ResponseEntity<DemoData>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
-
-
-//    @GetMapping("/student/{studentName}")
-//    public Student findStudentByName(@PathVariable String studentName){
-//        return service.getStudentByName(studentName);
-//    }
-//    @PutMapping("/update")
-//    public Student updateStudent(@RequestBody Student student){
-//        return service.updateStudent(student);
-//    }
-//
-//    @DeleteMapping("/delete/{id}")
-//    public String deleteStudent(@PathVariable long id){
-//        return service.deleteStudent(id);
-//    }
-
-
-
-
-//    @PostMapping("/addMultipleData")
-//    public List<Student> addStudents(@RequestBody List<Student> students){
-//        return service.saveStudents(students);
-//    }
-//    @GetMapping("/")
-//    public List<Student> findAllStudent(){
-//        System.out.println("hello world");
-//        return service.getStudents();
-//
-//    }
-//    @GetMapping("/student/{id}")
-//    public Student findStudentById(@PathVariable long id){
-//        return service.getStudentById(id);
-//    }
-//    @GetMapping("/student/{studentName}")
-//    public Student findStudentByName(@PathVariable String studentName){
-//        return service.getStudentByName(studentName);
-//    }
-//    @PutMapping("/update")
-//    public Student updateStudent(@RequestBody Student student){
-//        return service.updateStudent(student);
-//    }
-//
-//    @DeleteMapping("/delete/{id}")
-//    public String deleteStudent(@PathVariable long id){
-//        return service.deleteStudent(id);
-//    }
+    @PutMapping("/update/{id}")
+    public DemoData updateData(@RequestBody DemoData demoData){
+        DemoData existingData= demoRepo.findById(demoData.getId()).orElse(null);
+        existingData.setId(demoData.getId());
+        existingData.setUserId(demoData.getUserId());
+        existingData.setTitle(demoData.getTitle());
+        existingData.setBody(demoData.getBody());
+        return demoRepo.save(existingData);
+    }
 }
+
+
+
+
+//        public Student updateStudent (Student student){
+//       Student existingStudent= repository.findById(student.getId()).orElse(null);
+//        existingStudent.setStudentName(student.getStudentName());
+//        existingStudent.setStudentEmail(student.getStudentEmail());
+//        existingStudent.setStudentAddress(student.getStudentAddress());
+//        return repository.save(existingStudent);
+//    }
+//
+//
+//    @DeleteMapping("/delete/{id}")
+//    public String deleteStudent(@PathVariable long id){
+//        return service.deleteStudent(id);
+//    }
+
+
+
+
+
+//    @PutMapping("/update")
+//    public Student updateStudent(@RequestBody Student student){
+//        return service.updateStudent(student);
+//    }
+//
+//    @DeleteMapping("/delete/{id}")
+//    public String deleteStudent(@PathVariable long id){
+//        return service.deleteStudent(id);
+//    }
+//}
 
 
 
