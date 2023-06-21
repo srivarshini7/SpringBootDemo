@@ -29,38 +29,19 @@ public class DemoService {
         return demoRepo.findById(id).orElse(null);
     }
 
-    public DemoData getDataFiltered(long userId){
-        return demoRepo.findAllByUserId(userId);
+
+
+//    public DemoData getTitleById(long id){
+//      return demoRepo.getReferenceById(id);
+//
+//    }
+
+
+
+    public List<DemoData> getDataFiltered(long userId) {
+        List<DemoData> DataResponse = (List<DemoData>) demoRepo.findAllByUserId(userId);
+        return DataResponse;
     }
-
-//    @Transactional
-//    public List<DemoData> getDataFiltered(List<Long> userId) {
-//        List<DemoData> DataResponse = (List<DemoData>) demoRepo.findAllByUserId(userId);
-//        return DataResponse;
-//    }
-
-//    get by UserId method
-
-
-
-
-
-//    public List<DemoData> findAllByUserId(Iterable<Long> userId) {
-//        if (entityInformation.hasCompositeId()) {
-//
-//            List<DemoData> results = new ArrayList<DemoData>();
-//
-//            for (Long userId : userIds) {
-//                findAllByUserId(userId).ifPresent(results::add);
-//            }
-//
-//            return results;
-//        }
-//
-//    }
-
-
-
 
 
     //delete method

@@ -2,6 +2,8 @@ package com.example.demo.PostTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -9,6 +11,9 @@ import java.util.List;
 public class ControllerClass {
     @Autowired
     DemoService demoService;
+
+    @Autowired
+    private DemoRepo demoRepo;
 
     //   save one object
     @PostMapping("/post/{id}")
@@ -32,10 +37,24 @@ public class ControllerClass {
         return demoService.getDataById(id);
     }
 
-//    @GetMapping("/getGroup/{userId}")
-//    public DemoData getDataFiltered (@PathVariable long userId){
-//
+//    @GetMapping("/getTitle/{id}")
+//    public DemoData findTitleById(@PathVariable long id){
+//        return demoService.getTitleById(id);
 //    }
+
+//    @GetMapping("/getGroup/{userId}")
+//    public List<DemoData> getDataByUserId (@RequestParam List<DemoData> demoData, Long userId){
+//        return demoService.findAllByUserId(userId);
+//    }
+
+    @GetMapping("/getByUserId/{userId}")
+    public List<DemoData> getDataByUserId(@RequestParam List<DemoData> demoData, Long userId) {
+
+        List<DemoData> findAll = demoRepo.findAllById(Long userId);
+        findAll.forEach(System.out::println);
+        return findAll;
+    }
+
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable long id) {
