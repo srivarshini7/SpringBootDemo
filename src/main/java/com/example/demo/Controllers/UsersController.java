@@ -42,22 +42,27 @@ public class UsersController {
         return userService.updateUser(user);
     }
 
+//    for posts
     @GetMapping("/GetPostInfo")
     public List<PostResponse> getJointPostInfo(){
         return usersRepo.getPostInformation();
     }
+//    for post by id
     @GetMapping("GetPosts/{id}")
     public PostResponse getPostInfoById(@PathVariable long id){
         return usersRepo.getPostById(id);
     }
+//    for all the comments
     @GetMapping("/GetAllCommentsInfo")
     public List<CommentsResponse> getJointCommentsInfo(){
         return usersRepo.getCommentsInformation();
     }
+//    each comments by its id
     @GetMapping("GetPosts/{id}/Comments")
     public List<CommentsResponse> getCommentsInfoById(@PathVariable long id){
         return usersRepo.getCommentsById(id);
     }
+//    grouped by postId
     @GetMapping("GetComments/{id}")
     public CommentsResponse getCommentInfoByCommentId(@PathVariable long id){
         return usersRepo.getCommentById(id);
