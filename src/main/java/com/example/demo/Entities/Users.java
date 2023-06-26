@@ -1,13 +1,10 @@
 package com.example.demo.Entities;
-
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,4 +16,8 @@ public class Users {
     private long id;
     @Column(name= "name")
     private String name;
+
+    @OneToMany(targetEntity = Posts.class, cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id", referencedColumnName = "id")
+    private List<Posts> users;
 }
