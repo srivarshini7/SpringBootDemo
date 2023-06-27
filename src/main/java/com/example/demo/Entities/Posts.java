@@ -1,8 +1,11 @@
 package com.example.demo.Entities;
+import com.example.demo.dto.PostResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -23,4 +26,7 @@ public class Posts {
     @OneToMany(targetEntity = Comments.class, cascade = CascadeType.ALL)
     @JoinColumn(name="post_id", referencedColumnName = "id")
     private List<Comments> posts;
+
+
+
 }

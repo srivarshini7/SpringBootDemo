@@ -1,6 +1,8 @@
 package com.example.demo.Controllers;
 import com.example.demo.Entities.Posts;
+import com.example.demo.Repository.PostsRepo;
 import com.example.demo.Services.PostService;
+import com.example.demo.dto.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +12,9 @@ import java.util.List;
 public class PostsController {
     @Autowired
     PostService postService;
+
+    @Autowired
+    PostsRepo postsRepo;
 
     @PostMapping("/save/{id}")
     public Posts insertPost(@RequestBody Posts post) {
@@ -34,5 +39,16 @@ public class PostsController {
     @PutMapping("/update/{id}")
     public Posts updateThePost(@RequestBody Posts post) {
         return postService.updatePost(post);
+    }
+
+    //    for posts
+    @GetMapping("/GetPostInfo")
+    public List<PostResponse> getJointPostInfo(){
+        return postsRepo.getPostInformation();
+    }
+    //    for post by id
+    @GetMapping("GetPosts/{id}")
+    public PostResponse getPostInfoById(@PathVariable long id){
+        return postsRepo.getPostById(id);
     }
 }
