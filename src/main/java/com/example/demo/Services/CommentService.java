@@ -1,8 +1,12 @@
 package com.example.demo.Services;
 import com.example.demo.Entities.Comments;
 import com.example.demo.Repository.CommentsRepo;
+import com.example.demo.dto.CommentsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 @Service
 public class CommentService {
@@ -31,5 +35,14 @@ public class CommentService {
         existingComments.setEmail(comments.getEmail());
         existingComments.setBody(comments.getBody());
         return commentsRepo.save(existingComments);
+    }
+    public List<CommentsResponse> getJointCommentsInfo(){
+        return commentsRepo.getCommentsInformation();
+    }
+    public List<CommentsResponse> getCommentsInfoById(@PathVariable long id){
+        return commentsRepo.getCommentsById(id);
+    }
+    public CommentsResponse getCommentInfoByCommentId(@PathVariable long id){
+        return commentsRepo.getCommentById(id);
     }
 }

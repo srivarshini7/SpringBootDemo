@@ -1,8 +1,12 @@
 package com.example.demo.Services;
 import com.example.demo.Entities.Posts;
 import com.example.demo.Repository.PostsRepo;
+import com.example.demo.dto.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 @Service
 public class PostService {
@@ -30,5 +34,14 @@ public class PostService {
         existingPosts.setTitle(posts.getTitle());
         existingPosts.setBody(posts.getBody());
         return postsRepo.save(existingPosts);
+    }
+
+    //    for posts
+    public List<PostResponse> getJointPostInfo(){
+        return postsRepo.getPostInformation();
+    }
+    //    for post by id
+    public PostResponse getPostInfoById(@PathVariable long id){
+        return postsRepo.getPostById(id);
     }
 }
