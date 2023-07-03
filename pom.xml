@@ -36,13 +36,11 @@
 			<version>1.1.1</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.13.4</version>
+			<groupId>top.jfunc.json</groupId>
+			<artifactId>Json-Gson</artifactId>
+			<version>1.0</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
