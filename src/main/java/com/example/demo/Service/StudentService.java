@@ -27,7 +27,7 @@ public class StudentService {
 
     public String deleteStudent(int id){
         studentRepo.deleteById(id);
-        return "the "+id+" user data has been deleted";
+        return "the "+id+" student data has been deleted";
     }
 
     public Student updateStudent (Student student){

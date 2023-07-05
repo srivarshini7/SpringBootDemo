@@ -11,12 +11,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="subject_table")
-
 public class Subjects {
     @Id
     public int id;
-    @Column(name="student_name")
-    public String studentName;
-    @Column(name="marks")
-    public int marks;
+    @Column(name="English")
+    public String english;
+    @Column(name="Mathematics")
+    public String mathematics;
+    @Column(name="Science")
+    public String science;
+    @Column(name="Social")
+    public String social;
+
+
+
 }

@@ -1,11 +1,11 @@
 package com.example.demo.Entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +16,8 @@ public class Student {
     public int id;
     @Column(name="student_name")
     public String studentName;
-    @Column(name="section")
-    public char section;
+
+    @OneToMany(targetEntity = Exams.class, cascade = CascadeType.ALL)
+    @JoinColumn(name="student_id", referencedColumnName = "id")
+    private List<Exams> Exams;
 }
