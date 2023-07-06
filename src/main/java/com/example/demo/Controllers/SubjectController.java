@@ -3,15 +3,12 @@ import com.example.demo.Entity.Subjects;
 import com.example.demo.Service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 @RestController
 @RequestMapping("/subject")
 public class SubjectController {
     @Autowired
     SubjectService subjectService;
-
     @PostMapping("/save/{id}")
     public Subjects insertExams(@RequestBody Subjects subjects) {
         return subjectService.saveSubject(subjects);
@@ -24,7 +21,6 @@ public class SubjectController {
     public List<Subjects> getAllSubject() {
         return subjectService.getAllSubject();
     }
-
     @GetMapping("/get/{id}")
     public Subjects findExamsById(@PathVariable int id) {
         return subjectService.getSubjectById(id);

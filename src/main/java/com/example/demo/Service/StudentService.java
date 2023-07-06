@@ -21,6 +21,11 @@ public class StudentService {
         return studentRepo.findAll();
     }
 
+
+//    public List<StudentTotal> getTheStudentInfo(){
+//        return studentRepo.getStudentMarksInfo();
+//    }
+
     public Student getStudentById(int id){
         return studentRepo.findById(id).orElse(null);
     }

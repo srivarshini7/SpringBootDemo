@@ -4,14 +4,11 @@ import com.example.demo.Service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
-
 @RestController
 @RequestMapping("/exam")
 public class ExamController {
     @Autowired
     ExamService examService;
-
     @PostMapping("/save/{id}")
     public Exams insertExams(@RequestBody Exams exams) {
         return examService.saveExam(exams);

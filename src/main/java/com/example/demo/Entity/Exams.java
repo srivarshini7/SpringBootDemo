@@ -17,7 +17,7 @@ public class Exams {
     @Column(name="exam_name")
     public String examName;
 
-    @ManyToMany(targetEntity = Subjects.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Subjects.class, cascade = CascadeType.ALL)
     @JoinColumn(name="exam_id", referencedColumnName = "id")
     private List<Subjects> subjects;
 }

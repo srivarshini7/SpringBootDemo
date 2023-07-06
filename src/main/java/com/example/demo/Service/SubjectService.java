@@ -23,6 +23,7 @@ public class SubjectService {
         return subjectRepo.findAll();
     }
 
+
     public Subjects getSubjectById(int id){
         return subjectRepo.findById(id).orElse(null);
     }

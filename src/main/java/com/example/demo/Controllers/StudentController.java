@@ -5,14 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/student")
-
 public class StudentController {
     @Autowired
     StudentService studentService;
-
     @PostMapping("/save/{id}")
     public Student insertStudent(@RequestBody Student student) {
         return studentService.saveStudent(student);
@@ -29,6 +26,12 @@ public class StudentController {
     public Student findStudentById(@PathVariable int id) {
         return studentService.getStudentById(id);
     }
+
+//    @GetMapping("/stuInfo")
+//    public List<MarksByExam> getStudentInformation(){
+//        return studentService.getTheStudentInfo();
+//    }
+
     @DeleteMapping("/delete/{id}")
     public void deleteStudentById(@PathVariable int id) {
         studentService.deleteStudent(id);

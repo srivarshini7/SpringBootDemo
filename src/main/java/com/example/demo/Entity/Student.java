@@ -17,7 +17,8 @@ public class Student {
     @Column(name="student_name")
     public String studentName;
 
+
     @OneToMany(targetEntity = Exams.class, cascade = CascadeType.ALL)
     @JoinColumn(name="student_id", referencedColumnName = "id")
-    private List<Exams> Exams;
+    private List<Exams> exams;
 }

@@ -15,13 +15,13 @@ public class Subjects {
     @Id
     public int id;
     @Column(name="English")
-    public String english;
+    public int english;
     @Column(name="Mathematics")
-    public String mathematics;
+    public int mathematics;
     @Column(name="Science")
-    public String science;
+    public int science;
     @Column(name="Social")
-    public String social;
+    public int social;
 
 
 
