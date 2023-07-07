@@ -1,4 +1,5 @@
 package com.example.demo.Entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,19 +11,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="subject_table")
-public class Subjects {
+@Table(name= "marks_table")
+public class Marks {
     @Id
     public int id;
-    @Column(name="English")
+    @Column(name="exam_type")
+    public String examType;
+    @Column(name="english")
     public int english;
-    @Column(name="Mathematics")
+    @Column(name="mathematics")
     public int mathematics;
-    @Column(name="Science")
+    @Column(name="science")
     public int science;
-    @Column(name="Social")
+    @Column(name="social")
     public int social;
-
-
 
 }

@@ -1,6 +1,7 @@
 package com.example.demo.Service;
-import com.example.demo.Entity.Student;
-import com.example.demo.Repository.StudentRepo;
+import com.example.demo.DTO.DataByExam;
+import com.example.demo.Entity.Students;
+import com.example.demo.Repository.StudentsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -8,37 +9,31 @@ import java.util.List;
 @Service
 public class StudentService {
     @Autowired
-    StudentRepo studentRepo;
-
-    public Student saveStudent(Student student){
-        return studentRepo.save(student);
+    StudentsRepo studentsRepo;
+    public Students saveStudent(Students student){
+        return studentsRepo.save(student);
     }
-
-    public List<Student> saveAllStudents(List<Student> student){
-        return studentRepo.saveAll(student);
+    public List<Students> saveAllStudents(List<Students> students){
+        return studentsRepo.saveAll(students);
     }
-    public List<Student> getAllStudents(){
-        return studentRepo.findAll();
+    public List<Students> getAllStudents(){
+        return studentsRepo.findAll();
     }
-
-
-//    public List<StudentTotal> getTheStudentInfo(){
-//        return studentRepo.getStudentMarksInfo();
-//    }
-
-    public Student getStudentById(int id){
-        return studentRepo.findById(id).orElse(null);
+    public Students getStudentById(int id){
+        return studentsRepo.findById(id).orElse(null);
     }
-
     public String deleteStudent(int id){
-        studentRepo.deleteById(id);
-        return "the "+id+" student data has been deleted";
+        studentsRepo.deleteById(id);
+        return "the "+id+" user data has been deleted";
     }
-
-    public Student updateStudent (Student student){
-        Student existingStudent = studentRepo.findById(student.getId()).orElse(null);
+    public Students updateStudent (Students student){
+        Students existingStudent = studentsRepo.findById(student.getId()).orElse(null);
         existingStudent.setId(student.getId());
         existingStudent.setStudentName(student.getStudentName());
-        return studentRepo.save(existingStudent);
+        existingStudent.setSection(student.getSection());
+        return studentsRepo.save(existingStudent);
     }
+
+
+
 }
