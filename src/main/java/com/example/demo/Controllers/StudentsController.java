@@ -3,7 +3,7 @@ import com.example.demo.Entity.Students;
 import com.example.demo.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import java.util.*;
 @RestController
 @RequestMapping("/Students")
 public class StudentsController {
@@ -32,5 +32,20 @@ public class StudentsController {
     @GetMapping("/get/{id}")
     public Students findStudentsById(@PathVariable int id) {
         return studentService.getStudentById(id);
+    }
+
+    @GetMapping("/{studentId}/marks")
+    public Map<String, Object> getStudentMarks(@PathVariable int studentId) {
+        return studentService.getStudentMarks(studentId);
+    }
+
+    @GetMapping("/getAllStudentDetails")
+    public List<Students> getAllStudentsDetails() {
+        return studentService.getAllStudentsDetails();
+    }
+
+    @GetMapping("/getClassTopper")
+    public Students getClassTopper() {
+        return studentService.getClassTopper();
     }
 }

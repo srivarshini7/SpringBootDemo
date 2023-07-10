@@ -1,16 +1,10 @@
 package com.example.demo.Service;
-
-import com.example.demo.DTO.DataByExam;
 import com.example.demo.Entity.Marks;
 import com.example.demo.Repository.MarksRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
-
 @Service
-
 public class MarkService {
     @Autowired
     MarksRepo marksRepo;
@@ -42,8 +36,20 @@ public class MarkService {
     }
 
 
+    public List<Marks> getAllMarksByExamType(String examType) {
+        return marksRepo.findByExamType(examType);
+    }
 
-    public List<DataByExam> getStudentList(){
-        return marksRepo.getDataByExam();
+    public List<Marks> getAllSubjects() {
+        return marksRepo.findAll();
+    }
+
+    public Marks createSubject(int studentId, Marks subject) {
+
+        Marks subject1 = marksRepo.findById(studentId).map(student -> {
+//            int subjectId = subject.getId();
+            return marksRepo.save(subject);
+        }).orElseThrow(() -> new RuntimeException("no data of " + studentId));
+        return subject1;
     }
 }
