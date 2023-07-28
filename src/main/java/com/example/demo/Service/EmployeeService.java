@@ -1,10 +1,9 @@
 package com.example.demo.Service;
-//import com.example.demo.DTO.TaxDetails;
+
 import com.example.demo.Entity.EmployeeDetails;
 import com.example.demo.Repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.HashMap;
 import java.util.List;
