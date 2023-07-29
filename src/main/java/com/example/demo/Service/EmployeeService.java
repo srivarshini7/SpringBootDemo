@@ -35,29 +35,31 @@ public class EmployeeService {
         Map<String, Object> result = new HashMap<>();
         EmployeeDetails employee = employeeRepo.findById(employeeId).orElse(null);
         if (employee != null) {
-            int salary = employee.getSalary();
-            int totalSalary = 0;
+            double salary = employee.getSalary();
+            double totalSalary = 0;
             totalSalary = salary*12;
-            int cesAmount = 0;
-            int taxAmount =0;
+            double cesAmount = 0;
+            double taxAmount =0;
             String taxPercentage;
+//            ces Amount Calculation
             if(totalSalary> 2500000){
                 cesAmount =( 2* totalSalary)/100;
             }
+//            tax logic
             if(totalSalary<=250000){
                 taxAmount=0;
                 taxPercentage="Zero Tax";
             }
             else if((totalSalary>250000)&&(totalSalary<=500000)){
-                taxAmount=(5*totalSalary)/100;
+                taxAmount=(5*(totalSalary-250000))/100;
                 taxPercentage=" 5% Tax";
             }
             else if((totalSalary>500000)&&(totalSalary<=1000000)){
-                taxAmount=(10*totalSalary)/100;
+                taxAmount=12500+((10*totalSalary-500000)/100);
                 taxPercentage=" 10% Tax";
             }
             else{
-                taxAmount=(20*totalSalary)/100;
+                taxAmount=12500+50000+((20*totalSalary-1000000)/100);
                 taxPercentage=" 20% Tax";
             }
             result.put("AnnualSalary", totalSalary);

@@ -25,6 +25,6 @@ public class EmployeeDetails {
     @Column(name="date_of_joining")
     public String dateOfJoining;
     @Column(name="Salary")
-    public int salary;
+    public double salary;
 }
 

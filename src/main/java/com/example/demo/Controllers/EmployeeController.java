@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/Tax")
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
