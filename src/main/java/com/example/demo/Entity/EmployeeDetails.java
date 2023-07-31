@@ -19,6 +19,8 @@ public class EmployeeDetails {
     @Column(name="last_name")
     public String lastName;
     @Column(name="email")
+//    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
+//            flags = Pattern.Flag.CASE_INSENSITIVE)//    @NotEmpty(message = "Email cannot be empty")
     public String email;
     @Column(name="phone")
     public String phoneNumber;

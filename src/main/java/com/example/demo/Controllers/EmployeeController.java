@@ -18,7 +18,7 @@ public class EmployeeController {
     @PostMapping("/saveAll")
     public List<EmployeeDetails> insertEmployees(@RequestBody List<EmployeeDetails> employeeList) {
         return employeeService.saveEmployeeDetails(employeeList);
-//        checking if the branch if working properly
+//        checking if the branch is working properly
     }
     @GetMapping("/get")
     public List<EmployeeDetails> getAllEmployees() {
