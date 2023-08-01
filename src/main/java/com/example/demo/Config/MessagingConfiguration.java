@@ -42,11 +42,11 @@ public class MessagingConfiguration {
         template.setDefaultDestinationName(MESSAGE_QUEUE);
         return template;
     }
-
-    @Bean
-    MessageConverter converter()
-    {
-        return new SimpleMessageConverter();
-    }
+//
+//    @Bean
+//    MessageConverter converter()
+//    {
+//        return new SimpleMessageConverter();
+//    }
 
 }
