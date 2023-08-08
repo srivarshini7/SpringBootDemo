@@ -20,4 +20,7 @@ public class Users {
     @OneToMany(targetEntity = Posts.class, cascade = CascadeType.ALL)
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private List<Posts> users;
+
+    public Users(int i, String harry) {
+    }
 }
