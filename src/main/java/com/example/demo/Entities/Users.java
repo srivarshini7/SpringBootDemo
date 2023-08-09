@@ -21,6 +21,6 @@ public class Users {
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private List<Posts> users;
 
-    public Users(int i, String harry) {
+    public Users(int i, String name) {
     }
 }
