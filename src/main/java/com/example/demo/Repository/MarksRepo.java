@@ -6,8 +6,4 @@ import java.util.List;
 @Repository
 public interface MarksRepo extends JpaRepository<Marks, Integer> {
     List<Marks> findByExamType(String examType);
-
-
-
-
 }

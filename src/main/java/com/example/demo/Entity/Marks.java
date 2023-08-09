@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Table(name= "marks_table")
 public class Marks {
@@ -26,4 +26,8 @@ public class Marks {
     @Column(name="social")
     public int social;
 
+
+
+    public Marks(int id, String examType, int english, int mathematics, int science, int social) {
+    }
 }
