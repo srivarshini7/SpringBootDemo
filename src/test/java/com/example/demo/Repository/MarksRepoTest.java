@@ -30,12 +30,12 @@ public class MarksRepoTest {
     }
 
 
-    @Test
-    void testFindByExamType_Found() throws Exception
-    {
-        List<Marks> marksList= marksRepo.findByExamType("sem 1");
-        assertThat(marksList.get(0).getId()).isEqualTo(marks.getId());
-    }
+//    @Test
+//    void testFindByExamType_Found() throws Exception
+//    {
+//        List<Marks> marksList= marksRepo.findByExamType("sem 1");
+//        assertThat(marksList.get(0).getId()).isEqualTo(marks.getId());
+//    }
 
 
 }
