@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
@@ -28,6 +27,6 @@ public class Marks {
 
 
 
-    public Marks(int id, String examType, int english, int mathematics, int science, int social) {
+    public Marks(int id, String exType, int eng, int math, int sci, int soc) {
     }
 }

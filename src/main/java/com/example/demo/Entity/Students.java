@@ -20,4 +20,7 @@ public class Students {
     @OneToMany(targetEntity = Marks.class,cascade = CascadeType.ALL)
     @JoinColumn(name="student_id", referencedColumnName = "id")
     private List<Marks> marks;
+
+    public Students(int i, String name , String Section, String id, String exType, int eng, int math, int sci, int soc) {
+    }
 }
