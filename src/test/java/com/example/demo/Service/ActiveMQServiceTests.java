@@ -26,7 +26,4 @@ public class ActiveMQServiceTests {
         messageService.sendName(message);
         verify(jmsTemplate, times(1)).convertAndSend("The Queue", message);
     }
-
-
-
 }
