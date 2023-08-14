@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +31,14 @@ public class StudentServiceTests {
         when(studentsRepo.save(student)).thenReturn(student);
         assertThat(studentService.saveStudent(student)).isEqualTo(student);
     }
+
+
+//    @Test
+//    void testSaveAllStudent(){
+//        List<Students> studentsList = (new Students(1,  "Siri", "A",("1"), ("Sem 1"), (41), (42),(43), (44 )), new Students(2, "Sri", "A",("2"), ("Sem 1"), (43), (45),(44), (46)));
+//        when(studentsRepo.saveAll(studentsList)).thenReturn(studentsList);
+//        assertThat(studentService.saveStudent(Students)).isEqualTo(studentsList);
+//    }
 
     @Test
     void getStudentTest(){

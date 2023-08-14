@@ -13,7 +13,6 @@ import java.util.List;
 
 @DataJpaTest
 public class MarksRepoTest {
-
     @Autowired
     MarksRepo marksRepo;
     Marks marks;

@@ -27,6 +27,6 @@ public class Marks {
 
 
 
-    public Marks(int id, String exType, int eng, int math, int sci, int soc) {
+    public Marks(int id, String exType, int english, int mathematics, int science, int social) {
     }
 }

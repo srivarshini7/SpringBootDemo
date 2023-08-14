@@ -34,8 +34,6 @@ public class MarkService {
         existingMarks.setSocial(marks.getSocial());
         return marksRepo.save(existingMarks);
     }
-
-
     public List<Marks> getAllMarksByExamType(String examType) {
         return marksRepo.findByExamType(examType);
     }
@@ -47,7 +45,6 @@ public class MarkService {
     public Marks createSubject(int studentId, Marks subject) {
 
         Marks subject1 = marksRepo.findById(studentId).map(student -> {
-//            int subjectId = subject.getId();
             return marksRepo.save(subject);
         }).orElseThrow(() -> new RuntimeException("no data of " + studentId));
         return subject1;

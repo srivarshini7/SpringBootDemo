@@ -23,4 +23,7 @@ public class Students {
 
     public Students(int i, String name , String Section, String id, String exType, int eng, int math, int sci, int soc) {
     }
+
+    public Students(int i, String name, String Section) {
+    }
 }

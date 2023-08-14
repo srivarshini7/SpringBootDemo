@@ -23,6 +23,7 @@ public class MarksController {
     public List<Marks> getAllMarks() {
         return markService.getAllMarks();
     }
+//    done test
     @GetMapping("/get/{id}")
     public Marks findMarksById(@PathVariable int id) {
         return markService.getMarksById(id);

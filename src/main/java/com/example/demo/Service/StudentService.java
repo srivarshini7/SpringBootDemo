@@ -35,7 +35,6 @@ public class StudentService {
         existingStudent.setSection(student.getSection());
         return studentsRepo.save(existingStudent);
     }
-
     public Map<String, Object> getStudentMarks(int studentId) {
         Map<String, Object> result = new HashMap<>();
         Students student = studentsRepo.findById(studentId).orElse(null);
@@ -52,11 +51,9 @@ public class StudentService {
         }
         return result;
     }
-
     public List<Students> getAllStudentsDetails() {
         return studentsRepo.findAll();
     }
-
     public Students getClassTopper(){
         return studentsRepo.getClassTopper();
     }

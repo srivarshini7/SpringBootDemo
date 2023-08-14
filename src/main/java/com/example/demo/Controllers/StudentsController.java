@@ -16,7 +16,10 @@ public class StudentsController {
     @PostMapping("/saveAll")
     public List<Students> addAllStudents(@RequestBody List<Students> studentList) {
         return studentService.saveAllStudents(studentList);
+
     }
+
+//    test done
     @DeleteMapping("/delete/{id}")
     public void deleteStudentById(@PathVariable int id) {
         studentService.deleteStudent(id);
@@ -25,10 +28,12 @@ public class StudentsController {
     public Students updateTheStudent(@RequestBody Students student) {
         return studentService.updateStudent(student);
     }
+    //    test done
     @GetMapping("/getInfo")
     public List<Students> getAllStudents() {
         return studentService.getAllStudents();
     }
+    //    test done
     @GetMapping("/get/{id}")
     public Students findStudentsById(@PathVariable int id) {
         return studentService.getStudentById(id);
@@ -38,7 +43,7 @@ public class StudentsController {
     public Map<String, Object> getStudentMarks(@PathVariable int studentId) {
         return studentService.getStudentMarks(studentId);
     }
-
+    //    test done
     @GetMapping("/getAllStudentDetails")
     public List<Students> getAllStudentsDetails() {
         return studentService.getAllStudentsDetails();
